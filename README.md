@@ -27,26 +27,26 @@ This project is ideal for learning Docker fundamentals and interview preparation
 
 
 ## 🏗️ Project Architecture
-Service	Description	Port
-vote	Frontend Voting App	8080
-result	Result Dashboard	8081
-worker	.NET Background Worker	—
-redis	In-memory message queue	—
-db	PostgreSQL Database	—
-seed	Optional database seeder	—
+Service	Description	Port \
+vote	Frontend Voting App	8080 \
+result	Result Dashboard	8081 \
+worker	.NET Background Worker	— \
+redis	In-memory message queue	— \
+db	PostgreSQL Database	— \
+seed	Optional database seeder	— \
 
 
 ## 🌐 Networks Used
 
 front-tier
-
+\
 back-tier
 
 
 
 💾 Volume Used
 
-db-data → PostgreSQL persistent storage
+db-data → PostgreSQL persistent storage \
 
 
 
@@ -55,7 +55,8 @@ db-data → PostgreSQL persistent storage
 
 ## Step 1 — Create Networks
 
-docker network create front-tier
+docker network create front-tier 
+\
 docker network create back-tier
 
 
@@ -118,7 +119,9 @@ docker logs -f db
 
 
 cd vote
+\
 docker build -t vote-app --target dev .
+\
 cd ..
 
 
@@ -143,7 +146,9 @@ docker network connect back-tier vote
 
 
 cd result
+\
 docker build -t result-app .
+\
 cd ..
 
 
@@ -170,7 +175,9 @@ docker network connect back-tier result
 
 
 cd worker
+\
 docker build -t worker-app .
+\
 cd ..
 
 
@@ -191,7 +198,9 @@ docker run -d \
 **Build Seeder:**
 
 cd seed-data
+\
 docker build -t seed-app .
+\
 cd ..
 
 **Run Seeder:**
@@ -210,8 +219,10 @@ docker run --rm \
 
 
 Vote App	http://localhost:8080
-
+\
 Result App	http://localhost:8081
+\
+\
 📋 Container Startup Order
 
 ## Since Docker Compose is NOT used, start containers in this order:
@@ -230,6 +241,7 @@ worker
 **If services fail due to timing issues, restart them manually.**
 
 **🧹 Cleanup Commands**
+\
 Stop Containers
 
 docker stop vote result worker redis db
@@ -272,7 +284,7 @@ Docker BuildKit (optional)
 
 Linux / macOS / Windows
 
-👨‍💻 Author
+## 👨‍💻 Author
 
-Rajendra Jangid
+**Rajendra Jangid**\
 Full Stack Developer (MERN + DevOps)
